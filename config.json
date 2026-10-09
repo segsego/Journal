@@ -1,0 +1,56 @@
+{
+  "_aide": "Pour changer d'obsession : modifiez « theme » et les requêtes de la rubrique « obsession ». Rien d'autre.",
+  "obsession": {
+    "theme": "La parfumerie",
+    "requetes_science": [
+      "olfaction OR \"odor perception\" OR \"olfactory perception\"",
+      "\"olfactory memory\" OR \"odor memory\" OR \"odour-evoked\"",
+      "fragrance AND (perfume OR odorant OR \"olfactory receptor\")",
+      "fragrance AND (chemistry OR \"volatile compounds\")"
+    ],
+    "requetes_presse": [
+      "parfumerie de niche actualité",
+      "nouveau parfum lancement maison de parfum",
+      "exposition parfum Paris",
+      "parfum Strasbourg événement",
+      "parfumeur matières premières naturelles",
+      "histoire de la parfumerie"
+    ]
+  },
+  "orthophonie": {
+    "requetes": [
+      "\"developmental language disorder\" OR \"specific language impairment\"",
+      "dyslexia OR \"reading disorder\" OR \"literacy intervention\"",
+      "\"developmental dyscalculia\" OR \"mathematical learning disability\" OR \"numerical cognition\"",
+      "\"speech-language therapy\" OR \"speech and language therapy\" OR \"speech sound disorder\"",
+      "\"working memory\" AND (language OR children)",
+      "\"executive function\" AND (language OR aphasia)"
+    ]
+  },
+  "echantillons": {
+    "Strasbourg": [
+      "échantillons gratuits Strasbourg",
+      "pop-up store Strasbourg",
+      "événement beauté parfum Strasbourg cadeau",
+      "distribution gratuite produits Strasbourg"
+    ],
+    "Paris": [
+      "échantillons gratuits Paris pop-up",
+      "pop-up store Paris beauté parfum",
+      "distribution gratuite produits Paris marque",
+      "lancement parfum Paris pop-up cadeau offert"
+    ]
+  },
+  "art_de_vivre": {
+    "requetes": [
+      "hôtel de charme Alsace nouveauté",
+      "restaurant gastronomique Strasbourg nouveauté",
+      "spa de luxe Forêt-Noire",
+      "hôtel de luxe Suisse ouverture",
+      "salon de thé élégant Paris nouveau",
+      "expérience gastronomique originale Paris",
+      "hôtel Paris ouverture palace",
+      "table étoilée Alsace"
+    ]
+  }
+}
