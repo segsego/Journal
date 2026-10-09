@@ -1,0 +1,38 @@
+# Exécuté chaque jour par GitHub (gratuit). Votre Mac peut rester éteint.
+name: Journal quotidien
+on:
+  schedule:
+    - cron: "17 3 * * *"   # 03:17 UTC = 5h17 (été) ou 4h17 (hiver) à Paris
+  workflow_dispatch:        # bouton « Run workflow » pour lancer à la main
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: journal
+  cancel-in-progress: false
+jobs:
+  journal:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Générer le journal
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 journal.py
+      - name: Mémoriser les sujets déjà traités
+        run: |
+          git config user.name "journal-bot"
+          git config user.email "journal-bot@users.noreply.github.com"
+          git add etat.json
+          git diff --cached --quiet || git commit -m "Mémoire du $(date -u +%F)"
+          git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4
