@@ -42,15 +42,37 @@
     ]
   },
   "art_de_vivre": {
+    "territoires": "Strasbourg et Alsace d'abord (lieu de vie du lecteur) ; puis Allemagne proche (Kehl, Offenburg, Forêt-Noire, Baden-Baden, Fribourg-en-Brisgau) ; puis Suisse proche (Bâle et sa région) ; Paris en complément seulement.",
     "requetes": [
-      "hôtel de charme Alsace nouveauté",
       "restaurant gastronomique Strasbourg nouveauté",
-      "spa de luxe Forêt-Noire",
-      "hôtel de luxe Suisse ouverture",
-      "salon de thé élégant Paris nouveau",
-      "expérience gastronomique originale Paris",
-      "hôtel Paris ouverture palace",
-      "table étoilée Alsace"
+      "hôtel de charme Alsace",
+      "de:Baden-Baden Hotel Restaurant Neueröffnung",
+      "salon de thé café élégant Strasbourg",
+      "spa bien-être hôtel Alsace",
+      "Bâle hôtel restaurant nouveauté",
+      "bar à cocktails Strasbourg ouverture",
+      "table étoilée Alsace chef",
+      "de:Schwarzwald Hotel Spa Wellness",
+      "expérience originale Alsace dégustation visite",
+      "hôtel Paris ouverture nouveauté luxe",
+      "boutique-hôtel Strasbourg",
+      "de:Freiburg Restaurant Neueröffnung",
+      "Suisse hôtel spa Bâle région"
+    ]
+  },
+  "sortie": {
+    "nombre": 1,
+    "territoires": "Strasbourg d'abord, puis Alsace, puis Allemagne proche (Kehl, Offenburg, Baden-Baden, Fribourg) et Bâle ; à moins d'une heure et demie de Strasbourg.",
+    "requetes": [
+      "que faire à Strasbourg ce week-end",
+      "sorties Strasbourg cette semaine",
+      "exposition Strasbourg {mois} {annee}",
+      "événement Alsace {mois} {annee}",
+      "concert Strasbourg {mois} {annee}",
+      "marché festival Alsace week-end",
+      "de:Veranstaltungen Kehl Offenburg Wochenende",
+      "Bâle exposition {mois} {annee}",
+      "spectacle théâtre Strasbourg {mois} {annee}"
     ]
   }
 }
