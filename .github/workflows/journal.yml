@@ -13,26 +13,38 @@ concurrency:
   cancel-in-progress: false
 jobs:
   journal:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # version figée : évite le changement automatique d'Ubuntu du 19 octobre 2026
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Récupérer la mémoire des sujets déjà traités
+        run: |
+          if git fetch --depth=1 origin etat 2>/dev/null; then
+            git show FETCH_HEAD:etat.json > /tmp/etat.json && mv /tmp/etat.json etat.json || echo "Mémoire illisible : on repart de zéro."
+          else
+            echo "Pas encore de mémoire enregistrée."
+          fi
       - name: Générer le journal
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python3 journal.py
-      - name: Mémoriser les sujets déjà traités
-        run: |
-          git config user.name "journal-bot"
-          git config user.email "journal-bot@users.noreply.github.com"
-          git add etat.json
-          git diff --cached --quiet || git commit -m "Mémoire du $(date -u +%F)"
-          git push
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
       - id: deploy
         uses: actions/deploy-pages@v4
+      # La mémoire est enregistrée APRÈS la publication, dans une branche à part (« etat ») :
+      # elle ne peut plus entrer en conflit avec vos modifications, ni bloquer le journal.
+      - name: Mémoriser les sujets déjà traités
+        continue-on-error: true
+        run: |
+          git config user.name "journal-bot"
+          git config user.email "journal-bot@users.noreply.github.com"
+          git checkout --orphan etat
+          git rm -rf --cached . > /dev/null 2>&1 || true
+          git add -f etat.json
+          git commit -m "Mémoire du $(date -u +%F)"
+          git push --force origin etat
